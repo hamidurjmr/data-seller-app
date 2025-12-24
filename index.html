@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC FOUND APP 2026 - Quantum Crypto Recovery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00f3ff;
+            --secondary: #7700ff;
+            --accent: #ff00aa;
+            --dark: #0a0a15;
+            --darker: #050510;
+            --light: #ffffff;
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --neon-glow: 0 0 20px var(--primary);
+            --neon-glow-accent: 0 0 20px var(--accent);
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(119, 0, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(5, 5, 16, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: var(--neon-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 40px;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .logo-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .logo-text .year {
+            font-size: 18px;
+            color: var(--primary);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-2px);
+        }
+
+        /* Main Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Panels */
+        .panel {
+            background: rgba(5, 5, 16, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .panel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* BTC Display */
+        .btc-display {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(20, 20, 40, 0.5));
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .btc-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: var(--neon-glow);
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+
+        @media (max-width: 768px) {
+            .btc-amount {
+                font-size: 42px;
+            }
+        }
+
+        .btc-usd {
+            font-size: 20px;
+            color: var(--light);
+            opacity: 0.8;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--light);
+        }
+
+        /* Progress */
+        .progress-container {
+            margin: 25px 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Search Button */
+        .search-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            padding: 20px 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--darker);
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .search-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Status Messages */
+        .status-message {
+            background: rgba(0, 243, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+            animation: slideIn 0.3s;
+        }
+
+        .status-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Boost Panel */
+        .boost-section {
+            margin-top: 20px;
+        }
+
+        .boost-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(119, 0, 255, 0.3);
+        }
+
+        .boost-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .boost-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        .boost-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--light);
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .boost-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 170, 0.3);
+        }
+
+        .boost-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Key Input Section */
+        .key-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .key-section.show {
+            display: block;
+            animation: slideIn 0.3s;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 16px;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Withdrawal Panel */
+        .withdrawal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .withdraw-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            padding: 18px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: var(--darker);
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .withdraw-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .withdraw-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .info-box {
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 14px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 16, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            animation: modalAppear 0.3s;
+        }
+
+        @keyframes modalAppear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(5, 5, 16, 0.95), rgba(20, 20, 40, 0.95));
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 243, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .modal-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 768px) {
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .payment-method {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .payment-method.active {
+            border-color: var(--accent);
+            background: rgba(255, 0, 170, 0.1);
+        }
+
+        .payment-method i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .payment-details {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            display: none;
+        }
+
+        .payment-details.active {
+            display: block;
+            animation: slideIn 0.3s;
+        }
+
+        .payment-address {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .telegram-btn:hover {
+            background: #006699;
+            transform: translateY(-3px);
+        }
+
+        /* Processing Modal */
+        .processing-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .processing-timer {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 64px;
+            color: var(--accent);
+            margin: 30px 0;
+            text-shadow: var(--neon-glow-accent);
+        }
+
+        @media (max-width: 768px) {
+            .processing-timer {
+                font-size: 48px;
+            }
+        }
+
+        .processing-loader {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 243, 255, 0.3);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            margin-top: 25px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-answer.show {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(5, 5, 16, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+            color: var(--light);
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 243, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+
+
+<!-- ULTRA PRO KEY UI -->
+<style>
+#keyLock{
+  background:linear-gradient(135deg,#020024,#090979,#000);
+  backdrop-filter: blur(6px);
+}
+.key-ui{
+  background:rgba(0,0,0,0.85);
+  border-radius:20px;
+  padding:30px 25px;
+  width:320px;
+  color:#fff;
+  text-align:center;
+  box-shadow:0 0 40px rgba(0,255,255,0.4);
+}
+.key-ui h2{
+  margin:0;
+  font-size:22px;
+  color:#00fff0;
+}
+.key-ui p{
+  font-size:13px;
+  color:#bbb;
+}
+.key-ui input{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  background:#050505;
+  border:1px solid #00fff0;
+  border-radius:12px;
+  color:#00fff0;
+  font-size:16px;
+  text-align:center;
+  outline:none;
+}
+.key-ui button{
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  background:linear-gradient(135deg,#00fff0,#00bcd4);
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.key-ui button:hover{
+  opacity:0.9;
+}
+.telegram-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 18px;
+  border-radius:20px;
+  background:#0088cc;
+  color:#fff;
+  font-size:13px;
+  text-decoration:none;
+}
+.telegram-btn:hover{
+  background:#00aaff;
+}
+.key-footer{
+  margin-top:18px;
+  font-size:11px;
+  color:#777;
+}
+</style>
+
+<div id="keyLock" style="
+position:fixed;top:0;left:0;width:100%;height:100%;
+z-index:9999;
+display:flex;align-items:center;justify-content:center;
+font-family:'Segoe UI',sans-serif;">
+  <div class="key-ui">
+    <h2>🔐 Secure Access</h2>
+    <p>Enter your activation key to continue</p>
+    <input id="keyInput" placeholder="ENTER KEY">
+    <button onclick="checkKey()">UNLOCK NOW</button>
+
+    <button onclick="openAccessPayment()" style="margin-top:12px;background:linear-gradient(135deg,#00c6ff,#0072ff);border:none;border-radius:14px;padding:14px;color:#fff;font-size:15px;cursor:pointer;">
+      How to Get Access Key
+    </button>
+
+    <div id="keyMsg" style="margin-top:10px;color:#ff6b6b;font-size:13px;"></div>
+    
+    <div class="key-footer">
+      Protected by HQ Security
+    </div>
+  </div>
+</div>
+
+<script>
+function checkKey(){
+  const key = document.getElementById("keyInput").value.trim();
+  if(key === "HQMAGZNSN"){
+    document.getElementById("keyLock").style.display="none";
+  } else {
+    document.getElementById("keyMsg").innerText="Invalid key. Contact Telegram.";
+  }
+}
+</script>
+<!-- END ULTRA PRO KEY UI -->
+
+
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>BTC FOUND APP</h1>
+                    <div class="year">2026 Edition</div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="aboutBtn">
+                    <i class="fas fa-info-circle"></i> About
+                </button>
+                <button class="nav-btn" id="faqBtn">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </button>
+                <button class="nav-btn" id="helpBtn">
+                    <i class="fas fa-headset"></i> Help
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard">
+            <!-- Left Panel -->
+            <div class="panel">
+                <h2 class="panel-title">
+                    <i class="fas fa-satellite"></i>
+                    QUANTUM RECOVERY SYSTEM
+                </h2>
+                
+                <div class="btc-display">
+                    <div class="btc-amount" id="btcAmount">0.00000000</div>
+                    <div class="btc-usd" id="btcUsd">≈ $0.00 USD</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Today's Scans</div>
+                        <div class="stat-value" id="scansToday">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-value" id="successRate">0.001%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Last Found</div>
+                        <div class="stat-value" id="lastFound">NEVER</div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span>Quantum Scan Progress</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="status-message" id="statusMessage"></div>
+
+                <div class="search-container">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-satellite-dish"></i> START QUANTUM SCAN
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="side-panel">
+                <!-- Boost Panel -->
+                <div class="panel">
+                    <h2 class="panel-title">
+                        <i class="fas fa-rocket"></i>
+                        QUANTUM BOOST
+                    </h2>
+                    
+                    <div class="boost-card">
+                        <div class="boost-header">
+                            <div>
+                                <h3 style="color: var(--accent); margin-bottom: 5px;">ULTRA BOOST</h3>
+                                <p style="opacity: 0.8;">500x Higher Recovery Chance</p>
+                            </div>
+                            <div class="boost-price">$90</div>
+                        </div>
+                        <p style="margin-bottom: 15px; opacity: 0.9;">Unlock advanced blockchain scanning to increase lost BTC recovery probability.</p>
+                        
+                        <div class="key-section" id="keySection">
+                            <div class="form-group">
+                                <label class="form-label">Enter Activation Key:</label>
+                                <input type="text" class="form-input" id="activationKey" placeholder="Enter key from Telegram">
+                            </div>
+                            <button class="boost-btn" id="activateKeyBtn">
+                                <i class="fas fa-key"></i> ACTIVATE BOOST
+                            </button>
+                        </div>
+                        
+                        <button class="boost-btn" id="boostBtn">
+                            <i class="fas fa-bolt"></i> GET QUANTUM BOOST
+                        </button>
+                    </div>
+                    
+                    <div class="status-message" id="boostStatus"></div>
+                </div>
+
+                <!-- Withdrawal Panel -->
+                <div class="panel">
+                    <h2 class="panel-title">
+                        <i class="fas fa-wallet"></i>
+                        WITHDRAW BTC
+                    </h2>
+                    
+                    <div class="withdrawal-form">
+                        <div class="form-group">
+                            <label class="form-label">Your BTC Balance:</label>
+                            <input type="text" class="form-input" id="withdrawBalance" value="0.00000000" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">BTC Wallet Address:</label>
+                            <input type="text" class="form-input" id="btcAddress" placeholder="bc1q...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Amount (Min: 1 BTC):</label>
+                            <input type="text" class="form-input" id="withdrawAmount" value="1.00000000" readonly>
+                        </div>
+                        
+                        <button class="withdraw-btn" id="withdrawBtn" disabled>
+                            <i class="fas fa-paper-plane"></i> REQUEST WITHDRAWAL
+                        </button>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Important Notes:</strong></p>
+                        <p>• Minimum withdrawal: 1.00000000 BTC</p>
+                        <p>• Processing takes 10 minutes</p>                    
+                    </div>
+                    
+                    <div class="status-message" id="withdrawStatus"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="nav-buttons" style="justify-content: center; margin-bottom: 30px;">
+                <button class="nav-btn" id="contactBtn">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </button>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="nav-btn" style="text-decoration: none;">
+                    <i class="fab fa-telegram"></i> Telegram Support
+                </a>
+                <button class="nav-btn" id="termsBtn">
+                    <i class="fas fa-file-contract"></i> Terms
+                </button>
+            </div>
+            <div class="copyright">
+                © 2026 BTC FOUND APP. Quantum Blockchain Recovery System v2.1.6<br>
+                This is not a mining application. Recovery success rate: 0.001% (0.005% with Quantum Boost).
+            </div>
+        </footer>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closePaymentModal">&times;</button>
+            <h2 class="modal-title">ACTIVATE QUANTUM BOOST</h2>
+            
+            <p style="text-align: center; margin-bottom: 25px; opacity: 0.9;">Select payment method and follow instructions to get activation key.</p>
+            
+            <div class="payment-methods">
+                <div class="payment-method active" data-method="btc">
+                    <i class="fab fa-btc"></i>
+                    <div>Bitcoin</div>
+                    <small>0.0010 BTC</small>
+                </div>
+                <div class="payment-method" data-method="usdt">
+                    <i class="fas fa-coins"></i>
+                    <div>USDT</div>
+                    <small>90 USDT</small>
+                </div>
+                <div class="payment-method" data-method="solana">
+                    <i class="fas fa-fire"></i>
+                    <div>Solana</div>
+                    <small>0.72 SOL</small>
+                </div>
+                <div class="payment-method" data-method="doge">
+                    <i class="fab fa-reddit"></i>
+                    <div>Dogecoin</div>
+                    <small>680 DOGE</small>
+                </div>
+                <div class="payment-method" data-method="trx">
+                    <i class="fas fa-bolt"></i>
+                    <div>TRON</div>
+                    <small>317 TRX</small>
+                </div>
+                <div class="payment-method" data-method="ltc">
+                    <i class="fas fa-coins"></i>
+                    <div>Litecoin</div>
+                    <small>1.16 LTC</small>
+                </div>
+            </div>
+
+            <div class="payment-details active" id="btcDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">Bitcoin Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">0.0010 BTC</strong> to:</p>
+                <div class="payment-address">bc1qkrvuxrrjm9t96jdng86mhep29rvf4ezupepakx</div>
+                <p>After payment:</p>
+                <ol style="margin: 15px 0; padding-left: 20px;">
+                    <li>Take screenshot of transaction</li>
+                    <li>Send to Telegram bot</li>
+                    <li>Receive activation key</li>
+                </ol>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="payment-details" id="usdtDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">USDT Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">90 USDT (BEP20)</strong> to:</p>
+                <div class="payment-address">0x8Ed272B8003eC72F434929EB7E712dea2772A360</div>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="payment-details" id="solanaDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">Solana Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">0.72 SOL</strong> to:</p>
+                <div class="payment-address">BJRbjgLW13DwKkJvCTyXG9WTZoNVB4FQRsBKh4jN3TPH</div>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="payment-details" id="dogeDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">Dogecoin Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">680 DOGE</strong> to:</p>
+                <div class="payment-address">DBdHkdK9cSnTsbSU7fC3UsEScGk3Vh5MQj</div>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="payment-details" id="trxDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">TRON Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">317 TRX</strong> to:</p>
+                <div class="payment-address">TNF2n1mc56nbXwHi1FXrXckXc74RWuYDux</div>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="payment-details" id="ltcDetails">
+                <h3 style="color: var(--accent); margin-bottom: 15px;">Litecoin Payment Instructions:</h3>
+                <p>Send exactly <strong style="color: var(--warning);">1.16 LTC</strong> to:</p>
+                <div class="payment-address">LS8Cb6ve24tRaULwj9XfoYJDcRTbSbKr2s</div>
+                <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> Contact Telegram for Key
+                </a>
+            </div>
+
+            <div class="info-box" style="margin-top: 25px;">
+                <p><strong>Note:</strong> After payment verification on Telegram, you will receive an activation key. Enter that key in the Quantum Boost section to activate your boost.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div class="modal" id="processingModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeProcessingModal">&times;</button>
+            <div class="processing-content">
+                <h2 class="modal-title">WITHDRAWAL PROCESSING</h2>
+                <div class="processing-loader"></div>
+                <div class="processing-timer" id="processingTimer">10:00</div>
+                <p style="font-size: 18px; margin-bottom: 15px;">Your withdrawal is being processed...</p>
+                <p style="opacity: 0.9;">Estimated time remaining: <strong>10 minutes</strong></p>
+                <p style="opacity: 0.9; margin-top: 10px;">After processing, you will need to enter a verification key.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Modal -->
+    <div class="modal" id="keyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeKeyModal">&times;</button>
+            <h2 class="modal-title">ENTER VERIFICATION KEY</h2>
+            
+            <p style="text-align: center; margin-bottom: 25px;">Withdrawal processing complete. Enter the key received from Telegram to complete transaction.</p>
+            
+            <div class="form-group">
+                <label class="form-label">Verification Key:</label>
+                <input type="text" class="form-input" id="withdrawalKey" placeholder="Enter key from Telegram">
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Don't have key?</strong></p>
+                <p>1. Activate Quantum Boost ($90) first</p>
+                <p>2. Send payment proof to Telegram</p>
+                <p>3. Receive verification key</p>
+                <p>Telegram: <a href="https://t.me/CryptoMinerApp10" target="_blank" style="color: var(--primary); text-decoration: none;">@CryptoMinerApp10</a></p>
+            </div>
+            
+            <button class="withdraw-btn" id="submitKeyBtn" style="margin-top: 20px;">
+                <i class="fas fa-key"></i> COMPLETE WITHDRAWAL
+            </button>
+            
+            <div class="status-message" id="keyStatus"></div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeAboutModal">&times;</button>
+            <h2 class="modal-title">ABOUT BTC FOUND APP 2026</h2>
+            
+            <div style="margin-top: 25px;">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">What is BTC FOUND APP?</h3>
+                <p style="margin-bottom: 20px; line-height: 1.8;">BTC FOUND APP 2026 is an advanced quantum blockchain recovery system designed to locate and recover lost or abandoned cryptocurrencies from the blockchain network. Unlike mining applications, we use proprietary scanning algorithms to identify recoverable assets.</p>
+                
+                <h3 style="color: var(--primary); margin-bottom: 15px; margin-top: 30px;">How It Works</h3>
+                <ol style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+                    <li>Quantum scanning of blockchain for abandoned wallets</li>
+                    <li>Pattern recognition of lost transactions</li>
+                    <li>Recovery algorithm execution</li>
+                    <li>Secure transfer to user wallet</li>
+                </ol>
+                
+                <h3 style="color: var(--primary); margin-bottom: 15px; margin-top: 30px;">Technology</h3>
+                <div class="stats-grid" style="margin: 20px 0;">
+                    <div class="stat-card">
+                        <div class="stat-label">Quantum Scanning</div>
+                        <div class="stat-value">AI-Powered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-value">0.001%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Blockchain</div>
+                        <div class="stat-value">BTC Network</div>
+                    </div>
+                </div>
+                
+                <div class="info-box" style="margin-top: 30px;">
+                    <p><strong>Important:</strong> This app uses advanced blockchain analysis to detect rare recovery opportunities. While results depend on network conditions and wallet history, continuous scanning increases the chance of finding recoverable BTC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="modal" id="faqModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeFaqModal">&times;</button>
+            <h2 class="modal-title">FREQUENTLY ASKED QUESTIONS</h2>
+            
+            <div class="faq-container" style="margin-top: 30px;">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(1)">
+                        <span>How does BTC FOUND APP work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq1">
+                        <p style="padding: 10px 0;">The app uses quantum blockchain scanning technology to search for lost or abandoned BTC. It scans the blockchain for patterns indicating recoverable assets and attempts recovery through advanced algorithms.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(2)">
+                        <span>How long does it take to find BTC?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq2">
+                        <p style="padding: 10px 0;">Finding BTC is extremely rare (0.001% success rate). It could take anywhere from hours to days. With Quantum Boost, the chance increases to 0.005%, but it's still based on blockchain patterns and luck.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(3)">
+                        <span>How do I withdraw my BTC?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq3">
+                        <p style="padding: 10px 0;">You need minimum 1 BTC to withdraw. Enter your BTC address, request withdrawal, wait 10 minutes for processing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(4)">
+                        <span>Where do I get the verification key?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq4">
+                        <p style="padding: 10px 0;">After activating Quantum Boost ($90 payment), send payment proof to Telegram @CryptoMinerApp10. You will receive activation key.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(5)">
+                        <span>Is this app safe to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq5">
+                        <p style="padding: 10px 0;">The app uses browser-based storage only. No personal data is collected.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(6)">
+                        <span>What payment methods are accepted?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq6">
+                        <p style="padding: 10px 0;">We accept Bitcoin, USDT (BEP20), Solana, Dogecoin, TRON, and Litecoin for Quantum Boost activation. All payments are $90 equivalent.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(7)">
+                        <span>Can I use the app on mobile?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq7">
+                        <p style="padding: 10px 0;">Yes! The app is fully responsive and works perfectly on all mobile devices, tablets, and desktops.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeHelpModal">&times;</button>
+            <h2 class="modal-title">HELP & SUPPORT</h2>
+            
+            <div style="margin-top: 25px;">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Need Assistance?</h3>
+                <p style="margin-bottom: 20px; line-height: 1.8;">If you're experiencing issues or have questions about the app, here's how to get help:</p>
+                
+                <div class="info-box" style="margin-bottom: 25px;">
+                    <h4 style="color: var(--accent); margin-bottom: 10px;">Quick Support</h4>
+                    <p>For immediate assistance, contact our Telegram support team:</p>
+                    <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn" style="margin-top: 15px;">
+                        <i class="fab fa-telegram"></i> Telegram Support
+                    </a>
+                </div>
+                
+                <h3 style="color: var(--primary); margin-bottom: 15px; margin-top: 30px;">Common Issues</h3>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(8)">
+                            <span>App not loading properly</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer" id="faq8">
+                            <p style="padding: 10px 0;">Clear browser cache and reload the page. Make sure you have stable internet connection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(9)">
+                            <span>Withdrawal not working</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer" id="faq9">
+                            <p style="padding: 10px 0;">Ensure you have minimum 1 BTC balance and valid BTC address. Processing takes 10 minutes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(10)">
+                            <span>Key not accepted</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer" id="faq10">
+                            <p style="padding: 10px 0;">Keys are case-sensitive. Make sure you're entering the exact key received from Telegram.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box" style="margin-top: 30px;">
+                    <p><strong>Support Hours:</strong> 24/7 via Telegram</p>
+                    <p><strong>Response Time:</strong> Usually within 1-2 hours</p>
+                    <p><strong>Email:</strong> Contact via Telegram only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeContactModal">&times;</button>
+            <h2 class="modal-title">CONTACT US</h2>
+            
+            <div style="margin-top: 25px; text-align: center;">
+                <div class="logo-icon" style="font-size: 60px; margin-bottom: 20px;">
+                    <i class="fas fa-headset"></i>
+                </div>
+                
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Get In Touch</h3>
+                <p style="margin-bottom: 30px; line-height: 1.8;">For any questions, support requests, or feedback, please contact us through Telegram. We don't use email or other platforms.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+                    <a href="https://t.me/CryptoMinerApp10" target="_blank" class="telegram-btn" style="font-size: 18px;">
+                        <i class="fab fa-telegram"></i> @CryptoMinerApp10
+                    </a>
+                    
+                    <button class="nav-btn" onclick="copyToClipboard('@CryptoMinerApp10')" style="font-size: 16px;">
+                        <i class="fas fa-copy"></i> Copy Telegram Handle
+                    </button>
+                </div>
+                
+                <div class="info-box" style="margin-top: 30px;">
+                    <p><strong>Note:</strong> We only provide support via Telegram. Please don't share personal information or private keys with anyone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // App State
+        let btcBalance = 0;
+        let scansToday = 0;
+        let isScanning = false;
+        let scanProgress = 0;
+        let lastFoundTime = null;
+        let hasQuantumBoost = false;
+        let withdrawalProcessing = false;
+        let processingTime = 600;
+        let processingInterval;
+        let isBoostActivated = false;
+        let autoScanInterval = null;
+        let backgroundScanInterval = null;
+        let wakeLock = null;
+
+        // DOM Elements
+        const btcAmountEl = document.getElementById('btcAmount');
+        const btcUsdEl = document.getElementById('btcUsd');
+        const scansTodayEl = document.getElementById('scansToday');
+        const successRateEl = document.getElementById('successRate');
+        const lastFoundEl = document.getElementById('lastFound');
+        const progressFillEl = document.getElementById('progressFill');
+        const progressPercentEl = document.getElementById('progressPercent');
+        const searchBtn = document.getElementById('searchBtn');
+        const statusMessageEl = document.getElementById('statusMessage');
+        const boostBtn = document.getElementById('boostBtn');
+        const keySection = document.getElementById('keySection');
+        const activationKeyEl = document.getElementById('activationKey');
+        const activateKeyBtn = document.getElementById('activateKeyBtn');
+        const boostStatusEl = document.getElementById('boostStatus');
+        const withdrawBtn = document.getElementById('withdrawBtn');
+        const withdrawBalanceEl = document.getElementById('withdrawBalance');
+        const btcAddressEl = document.getElementById('btcAddress');
+        const withdrawStatusEl = document.getElementById('withdrawStatus');
+
+        // Modals
+        const modals = {
+            payment: document.getElementById('paymentModal'),
+            processing: document.getElementById('processingModal'),
+            key: document.getElementById('keyModal'),
+            about: document.getElementById('aboutModal'),
+            faq: document.getElementById('faqModal'),
+            help: document.getElementById('helpModal'),
+            contact: document.getElementById('contactModal')
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDisplay();
+            loadFromLocalStorage();
+            setupEventListeners();
+            setupPaymentMethods();
+            
+            showStatus("⚡ Quantum Recovery System Initialized. Start scanning for lost BTC!", "info");
+            
+            // Update last found time
+            setInterval(updateLastFound, 60000);
+            
+            // Rare random BTC finding
+            setInterval(() => {
+                if (!isScanning && Math.random() < 0.000001) {
+                    const foundAmount = 0.9;
+                    btcBalance += foundAmount;
+                    lastFoundTime = new Date();
+                    
+                    showStatus(`🎉 QUANTUM ANOMALY! System recovered ${foundAmount} BTC from lost blockchain segment!`, "success");
+                    updateDisplay();
+                    saveToLocalStorage();
+                    updateLastFound();
+                }
+            }, 300000);
+            
+            // Start auto scan if boost is activated
+            if (isBoostActivated) {
+                startAutoScan();
+                startBackgroundScan();
+            }
+            
+            // Check for background scan when page loads
+            checkBackgroundScan();
+            
+            // Enable wake lock for background scanning
+            enableWakeLock();
+        });
+
+        // ========== BACKGROUND SCAN SYSTEM ==========
+        
+        async function enableWakeLock() {
+            try {
+                if ('wakeLock' in navigator) {
+                    wakeLock = await navigator.wakeLock.request('screen');
+                    console.log('Wake Lock activated for background scanning');
+                }
+            } catch (err) {
+                console.log('Wake Lock not supported:', err);
+            }
+        }
+
+        function startAutoScan() {
+            if (autoScanInterval) return;
+            
+            autoScanInterval = setInterval(() => {
+                if (!isScanning) {
+                    startQuantumScan();
+                }
+            }, 5000); // Scan every 5 seconds
+            
+            showStatus("🔄 Auto-scan activated! Scanning every 5 seconds...", "info");
+            localStorage.setItem('autoScanActive', 'true');
+        }
+
+        function stopAutoScan() {
+            if (!autoScanInterval) return;
+            
+            clearInterval(autoScanInterval);
+            autoScanInterval = null;
+            localStorage.setItem('autoScanActive', 'false');
+            showStatus("⏸️ Auto-scan stopped", "info");
+        }
+
+        function startBackgroundScan() {
+            if (backgroundScanInterval) return;
+            
+            // Start background scanning that works even when app is closed
+            backgroundScanInterval = setInterval(() => {
+                performBackgroundScan();
+            }, 30000); // Check every 30 seconds
+            
+            localStorage.setItem('backgroundScanActive', 'true');
+            localStorage.setItem('lastBackgroundScan', Date.now().toString());
+            
+            console.log('Background scan started');
+        }
+
+        function performBackgroundScan() {
+            // This function simulates background scanning
+            if (!isBoostActivated) return;
+            
+            // Save current state
+            const currentTime = Date.now();
+            const lastScan = parseInt(localStorage.getItem('lastBackgroundScan') || '0');
+            
+            // If it's been more than 1 minute since last scan
+            if (currentTime - lastScan > 60000) {
+                // Simulate scanning in background
+                const scanChance = isBoostActivated ? 0.0005 : 0.0001;
+                
+                if (Math.random() < scanChance) {
+                    const foundAmount = 0.001; // Small amount for background
+                    btcBalance += foundAmount;
+                    scansToday++;
+                    lastFoundTime = new Date();
+                    
+                    // Save to localStorage
+                    saveToLocalStorage();
+                    
+                    // Store notification for when user returns
+                    localStorage.setItem('backgroundNotification', JSON.stringify({
+                        message: `🌙 BACKGROUND SCAN: Found ${foundAmount} BTC!`,
+                        amount: foundAmount,
+                        time: currentTime
+                    }));
+                    
+                    // Update if app is open
+                    if (document.visibilityState === 'visible') {
+                        updateDisplay();
+                        updateLastFound();
+                        showStatus(`🌙 BACKGROUND SCAN: Found ${foundAmount} BTC!`, "success");
+                    }
+                }
+                
+                // Update scan count even if no BTC found
+                scansToday++;
+                updateDisplay();
+                saveToLocalStorage();
+                
+                // Update last scan time
+                localStorage.setItem('lastBackgroundScan', currentTime.toString());
+            }
+        }
+
+        function checkBackgroundScan() {
+            // Check if there are any background notifications
+            const notification = localStorage.getItem('backgroundNotification');
+            if (notification) {
+                try {
+                    const data = JSON.parse(notification);
+                    const oneHourAgo = Date.now() - 3600000;
+                    
+                    if (data.time > oneHourAgo) {
+                        showStatus(data.message, "success");
+                        updateDisplay();
+                    }
+                    
+                    localStorage.removeItem('backgroundNotification');
+                } catch (e) {}
+            }
+            
+            // Resume background scan if it was active
+            const wasActive = localStorage.getItem('backgroundScanActive') === 'true';
+            if (wasActive && isBoostActivated) {
+                startBackgroundScan();
+            }
+        }
+
+        // Monitor app visibility
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                // App came to foreground - resume scanning
+                if (isBoostActivated && !autoScanInterval) {
+                    startAutoScan();
+                }
+                
+                // Check for background updates
+                checkBackgroundScan();
+                
+            } else {
+                // App went to background
+                // Keep background scan running
+                console.log('App in background, continuing scan...');
+            }
+        });
+
+        // ========== MAIN FUNCTIONS ==========
+
+        function setupEventListeners() {
+            // Navigation buttons
+            document.getElementById('aboutBtn').addEventListener('click', () => openModal('about'));
+            document.getElementById('faqBtn').addEventListener('click', () => openModal('faq'));
+            document.getElementById('helpBtn').addEventListener('click', () => openModal('help'));
+            document.getElementById('contactBtn').addEventListener('click', () => openModal('contact'));
+            document.getElementById('termsBtn').addEventListener('click', () => {
+                showStatus("Terms: This app is for simulation purposes only. No real cryptocurrency is involved.", "info");
+            });
+
+            // Search button
+            searchBtn.addEventListener('click', startQuantumScan);
+            
+            // Boost button
+            boostBtn.addEventListener('click', () => {
+                if (isBoostActivated) {
+                    showBoostStatus("✅ Quantum Boost already activated!", "success");
+                } else {
+                    openModal('payment');
+                }
+            });
+            
+            // Activate key button
+            activateKeyBtn.addEventListener('click', activateBoostWithKey);
+            
+            // Withdrawal button
+            withdrawBtn.addEventListener('click', startWithdrawal);
+            
+            // BTC address validation
+            btcAddressEl.addEventListener('input', validateWithdrawal);
+            
+            // Close buttons
+            document.getElementById('closePaymentModal').addEventListener('click', () => closeModal('payment'));
+            document.getElementById('closeProcessingModal').addEventListener('click', () => closeModal('processing'));
+            document.getElementById('closeKeyModal').addEventListener('click', () => closeModal('key'));
+            document.getElementById('closeAboutModal').addEventListener('click', () => closeModal('about'));
+            document.getElementById('closeFaqModal').addEventListener('click', () => closeModal('faq'));
+            document.getElementById('closeHelpModal').addEventListener('click', () => closeModal('help'));
+            document.getElementById('closeContactModal').addEventListener('click', () => closeModal('contact'));
+            
+            // Submit key button
+            document.getElementById('submitKeyBtn').addEventListener('click', submitWithdrawalKey);
+            
+            // Close modals on outside click
+            Object.keys(modals).forEach(modalId => {
+                modals[modalId].addEventListener('click', (e) => {
+                    if (e.target === modals[modalId]) {
+                        closeModal(modalId);
+                    }
+                });
+            });
+            
+            // Close modals on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    Object.keys(modals).forEach(modalId => {
+                        if (modals[modalId].classList.contains('active')) {
+                            closeModal(modalId);
+                        }
+                    });
+                }
+            });
+        }
+
+        function setupPaymentMethods() {
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const paymentDetails = document.querySelectorAll('.payment-details');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', () => {
+                    const methodType = method.getAttribute('data-method');
+                    
+                    // Update active payment method
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    method.classList.add('active');
+                    
+                    // Show corresponding details
+                    paymentDetails.forEach(detail => detail.classList.remove('active'));
+                    document.getElementById(`${methodType}Details`).classList.add('active');
+                });
+            });
+        }
+
+        function startQuantumScan() {
+            if (isScanning) return;
+            
+            isScanning = true;
+            scansToday++;
+            searchBtn.disabled = true;
+            searchBtn.innerHTML = '<i class="fas fa-satellite-dish fa-spin"></i> SCANNING...';
+            
+            // Reset progress
+            scanProgress = 0;
+            updateProgress();
+            
+            // Start scan simulation
+            const scanTime = hasQuantumBoost ? 15000 : 30000;
+            const progressInterval = setInterval(() => {
+                scanProgress += 1;
+                updateProgress();
+                
+                if (scanProgress >= 100) {
+                    clearInterval(progressInterval);
+                    completeScan();
+                }
+            }, scanTime / 100);
+        }
+
+        function completeScan() {
+            isScanning = false;
+            searchBtn.disabled = false;
+            searchBtn.innerHTML = '<i class="fas fa-satellite-dish"></i> START QUANTUM SCAN';
+            
+            // Very rare chance to find BTC
+            const baseChance = 0.001;
+            const chance = hasQuantumBoost ? baseChance * 5 : baseChance;
+            const foundBTC = Math.random() < (chance / 100);
+            
+            if (foundBTC) {
+                // Found 0.9 BTC
+                const foundAmount = 0.9;
+                btcBalance += foundAmount;
+                lastFoundTime = new Date();
+                
+                showStatus(`🚀 QUANTUM BREAKTHROUGH! Found ${foundAmount} BTC! This is EXTREMELY RARE!`, "success");
+                updateLastFound();
+                
+                setTimeout(() => {
+                    showStatus("⚠️ Next recovery may take DAYS. Continue scanning...", "info");
+                }, 3000);
+            } else {
+                showStatus("🔍 Scan complete. No BTC found. Continue searching...", "info");
+            }
+            
+            updateDisplay();
+            saveToLocalStorage();
+        }
+
+        function activateBoostWithKey() {
+            const key = activationKeyEl.value.trim().toUpperCase();
+            
+            if (!key) {
+                showBoostStatus("❌ Please enter activation key", "error");
+                return;
+            }
+            
+            if (key !== "HMR2009") {
+                showBoostStatus("❌ Invalid activation key", "error");
+                return;
+            }
+            
+            // Activate boost
+            hasQuantumBoost = true;
+            isBoostActivated = true;
+            keySection.classList.remove('show');
+            boostBtn.disabled = true;
+            boostBtn.innerHTML = '<i class="fas fa-check"></i> QUANTUM BOOST ACTIVE';
+            activationKeyEl.value = '';
+            
+            showBoostStatus("✅ Quantum Boost activated! 500x higher recovery chance!", "success");
+            
+            // Start auto scanning
+            startAutoScan();
+            startBackgroundScan();
+            
+            updateDisplay();
+            saveToLocalStorage();
+        }
+
+        function startWithdrawal() {
+            if (btcBalance < 1) {
+                showWithdrawStatus("❌ Minimum withdrawal: 1.00000000 BTC", "error");
+                return;
+            }
+            
+            const address = btcAddressEl.value.trim();
+            if (!address || address.length < 10) {
+                showWithdrawStatus("❌ Please enter valid BTC address", "error");
+                return;
+            }
+            
+            // Start processing
+            withdrawalProcessing = true;
+            withdrawBtn.disabled = true;
+            
+            // Show processing modal
+            openModal('processing');
+            
+            // Start countdown
+            processingTime = 600;
+            updateProcessingTimer();
+            
+            processingInterval = setInterval(() => {
+                processingTime--;
+                updateProcessingTimer();
+                
+                if (processingTime <= 0) {
+                    clearInterval(processingInterval);
+                    completeProcessing();
+                }
+            }, 1000);
+        }
+
+        function completeProcessing() {
+            closeModal('processing');
+            openModal('key');
+            withdrawalProcessing = false;
+        }
+
+        function submitWithdrawalKey() {
+            const key = document.getElementById('withdrawalKey').value.trim().toUpperCase();
+            
+            if (key !== "HMR2009") {
+                showKeyStatus("❌ Invalid key. Get correct key from Telegram", "error");
+                return;
+            }
+            
+            // Success!
+            btcBalance -= 1;
+            updateDisplay();
+            saveToLocalStorage();
+            
+            showKeyStatus("✅ Withdrawal complete! 1 BTC sent to your wallet.", "success");
+            
+            setTimeout(() => {
+                closeModal('key');
+                document.getElementById('withdrawalKey').value = "";
+                showWithdrawStatus("✅ Withdrawal successful! Transaction confirmed.", "success");
+                withdrawBtn.disabled = true;
+            }, 2000);
+        }
+
+        function updateDisplay() {
+            // Update BTC balance
+            btcAmountEl.textContent = btcBalance.toFixed(8);
+            withdrawBalanceEl.value = btcBalance.toFixed(8);
+            
+            // Update USD value
+            const usdValue = btcBalance * 60000;
+            btcUsdEl.textContent = `≈ $${usdValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD`;
+            
+            // Update scans
+            scansTodayEl.textContent = scansToday;
+            
+            // Update success rate
+            const rate = hasQuantumBoost ? "0.005%" : "0.001%";
+            successRateEl.textContent = rate;
+            
+            // Show/hide key section based on boost activation
+            if (isBoostActivated) {
+                keySection.classList.remove('show');
+            } else {
+                keySection.classList.add('show');
+            }
+            
+            // Validate withdrawal
+            validateWithdrawal();
+        }
+
+        function updateProgress() {
+            progressFillEl.style.width = `${scanProgress}%`;
+            progressPercentEl.textContent = `${scanProgress}%`;
+        }
+
+        function updateProcessingTimer() {
+            const minutes = Math.floor(processingTime / 60);
+            const seconds = processingTime % 60;
+            document.getElementById('processingTimer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function updateLastFound() {
+            if (lastFoundTime) {
+                const now = new Date();
+                const diffMs = now - lastFoundTime;
+                const diffMins = Math.floor(diffMs / 60000);
+                
+                if (diffMins < 1) lastFoundEl.textContent = "JUST NOW";
+                else if (diffMins < 60) lastFoundEl.textContent = `${diffMins} MIN AGO`;
+                else if (diffMins < 1440) lastFoundEl.textContent = `${Math.floor(diffMins/60)} HOURS AGO`;
+                else lastFoundEl.textContent = `${Math.floor(diffMins/1440)} DAYS AGO`;
+            } else {
+                lastFoundEl.textContent = "NEVER";
+            }
+        }
+
+        function validateWithdrawal() {
+            const address = btcAddressEl.value.trim();
+            const hasEnoughBTC = btcBalance >= 1;
+            withdrawBtn.disabled = !(address.length > 10 && hasEnoughBTC);
+        }
+
+        // Status message functions
+        function showStatus(message, type) {
+            statusMessageEl.textContent = message;
+            statusMessageEl.className = 'status-message show';
+            statusMessageEl.style.borderLeftColor = type === 'success' ? 'var(--success)' : 'var(--primary)';
+            
+            setTimeout(() => {
+                statusMessageEl.className = 'status-message';
+            }, 5000);
+        }
+
+        function showBoostStatus(message, type) {
+            boostStatusEl.textContent = message;
+            boostStatusEl.className = 'status-message show';
+            boostStatusEl.style.borderLeftColor = type === 'success' ? 'var(--success)' : 'var(--primary)';
+            
+            setTimeout(() => {
+                boostStatusEl.className = 'status-message';
+            }, 5000);
+        }
+
+        function showWithdrawStatus(message, type) {
+            withdrawStatusEl.textContent = message;
+            withdrawStatusEl.className = 'status-message show';
+            withdrawStatusEl.style.borderLeftColor = type === 'success' ? 'var(--success)' : 'var(--primary)';
+            
+            setTimeout(() => {
+                withdrawStatusEl.className = 'status-message';
+            }, 5000);
+        }
+
+        function showKeyStatus(message, type) {
+            const keyStatusEl = document.getElementById('keyStatus');
+            keyStatusEl.textContent = message;
+            keyStatusEl.className = 'status-message show';
+            keyStatusEl.style.borderLeftColor = type === 'success' ? 'var(--success)' : 'var(--primary)';
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            modals[modalId].classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            modals[modalId].classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // FAQ toggle function
+        window.toggleFaq = function(id) {
+            const answer = document.getElementById(`faq${id}`);
+            const isOpen = answer.classList.contains('show');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                el.classList.remove('show');
+            });
+            
+            // Open clicked one if it was closed
+            if (!isOpen) {
+                answer.classList.add('show');
+            }
+        };
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showStatus("✅ Telegram handle copied to clipboard!", "success");
+            });
+        }
+
+        // Local storage
+        function saveToLocalStorage() {
+            const data = {
+                btcBalance,
+                scansToday,
+                lastFoundTime: lastFoundTime ? lastFoundTime.getTime() : null,
+                hasQuantumBoost,
+                isBoostActivated
+            };
+            localStorage.setItem('btcFoundApp2026', JSON.stringify(data));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('btcFoundApp2026');
+            if (saved) {
+                const data = JSON.parse(saved);
+                btcBalance = data.btcBalance || 0;
+                scansToday = data.scansToday || 0;
+                lastFoundTime = data.lastFoundTime ? new Date(data.lastFoundTime) : null;
+                hasQuantumBoost = data.hasQuantumBoost || false;
+                isBoostActivated = data.isBoostActivated || false;
+                
+                if (isBoostActivated) {
+                    keySection.classList.remove('show');
+                    boostBtn.disabled = true;
+                    boostBtn.innerHTML = '<i class="fas fa-check"></i> QUANTUM BOOST ACTIVE';
+                }
+                
+                updateLastFound();
+            }
+        }
+    </script>
+
+<!-- ACCESS KEY PAYMENT MODAL -->
+<style>
+#accessPayModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000;}
+#accessPayModal .box{width:92%;max-width:420px;max-height:75vh;overflow-y:auto;margin:10% auto;background:#020617;color:#e5e7eb;border-radius:16px;padding:18px;border:1px solid #00fff0;box-shadow:0 20px 40px rgba(0,0,0,.6);}
+#accessPayModal h3{margin:0 0 10px;color:#00fff0;text-align:center}
+.pay-item{margin:10px 0;padding-bottom:10px;border-bottom:1px solid #1f2937;font-size:13px}
+.pay-item code{display:block;font-size:11px;color:#93c5fd;word-break:break-all}
+.tg-send{margin-top:15px;width:100%;padding:12px;border-radius:12px;border:none;background:#229ED9;color:#fff;font-size:14px;cursor:pointer}
+.close-pay{margin-top:8px;width:100%;padding:10px;border-radius:12px;border:none;background:#1f2937;color:#fff}
+</style>
+
+<div id="accessPayModal">
+  <div class="box">
+    <h3>Unlock App – Access Key ($5)</h3>
+    <p style="font-size:13px;opacity:.9">
+      Pay <b>$5 via crypto</b>. After payment, send the <b>screenshot on Telegram</b>.
+      You will receive your <b>Access Key</b> there.
+    </p>
+
+    
+    <div class="pay-item"><b>BTC</b> – 0.000057 BTC<code>bc1qkrvuxrrjm9t96jdng86mhep29rvf4ezupepakx</code></div>
+    <div class="pay-item"><b>BNB</b> – 0.0060 BNB<code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+    <div class="pay-item"><b>ETH</b> – 0.0017 ETH<code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+    <div class="pay-item"><b>Polygon</b> – 46.97 POL<code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+
+    <div class="pay-item"><b>USDT (ERC20 – Ethereum)</b><code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+    <div class="pay-item"><b>USDT (BEP20 – BNB Smart Chain)</b><code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+    <div class="pay-item"><b>USDT (POL – Polygon)</b><code>0x8Ed272B8003eC72F434929EB7E712dea2772A360</code></div>
+    <div class="pay-item"><b>USDT (TRC20 – Tron)</b><code>TNF2n1mc56nbXwHi1FXrXckXc74RWuYDux</code></div>
+
+    <div class="pay-item"><b>Solana</b> – 0.041 SOL<code>BJRbjgLW13DwKkJvCTyXG9WTZoNVB4FQRsBKh4jN3TPH</code></div>
+    <div class="pay-item"><b>Dogecoin</b> – 40 DOGE<code>DBdHkdK9cSnTsbSU7fC3UsEScGk3Vh5MQj</code></div>
+    <div class="pay-item"><b>Litecoin</b> – 0.066 LTC<code>LS8Cb6ve24tRaULwj9XfoYJDcRTbSbKr2s</code></div>
+    <div class="pay-item"><b>TRX</b> – 18 TRX<code>TNF2n1mc56nbXwHi1FXrXckXc74RWuYDux</code></div>
+    <div class="pay-item"><b>TON</b> – 3.5 TON<code>UQCAmLdC9CScLicYOBjLuRh-GZN9CGGej5D04Bv5wsFzygjP</code></div>
+
+
+    <button class="tg-send" onclick="window.open('https://t.me/CryptoMinerApp10','_blank')">
+      Send Payment Screenshot on Telegram
+    </button>
+    <button class="close-pay" onclick="closeAccessPayment()">Close</button>
+  </div>
+</div>
+
+<script>
+function openAccessPayment(){document.getElementById('accessPayModal').style.display='block'}
+function closeAccessPayment(){document.getElementById('accessPayModal').style.display='none'}
+</script>
+<!-- END ACCESS KEY PAYMENT MODAL -->
+
+
+<script>
+document.addEventListener('click', function(e){
+  const modal = document.getElementById('accessPayModal');
+  if(modal && modal.style.display==='block' && e.target === modal){
+    modal.style.display='none';
+  }
+});
+</script>
+
+</body>
+</html>
